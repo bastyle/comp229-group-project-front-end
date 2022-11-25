@@ -33,7 +33,11 @@ export class DataManagerService {
 
 
   getPosts(): Observable<Post[]> {
+    let postsEx = this.http.get<Post[]>(this.baseUrl + 'post');
+    console.log("p: "+postsEx);
+    console.log("p: "+JSON.stringify(postsEx));
     return this.http.get<Post[]>(this.baseUrl + 'post');
+    // return this.http.get<Post[]>(this.baseUrl + 'post-list');
   }
 
   savePost(post: Post): Observable<Post>  {

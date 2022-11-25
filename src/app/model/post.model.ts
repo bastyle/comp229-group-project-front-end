@@ -6,7 +6,7 @@ export class Post
 {
   // tslint:disable-next-line: variable-name
   public _id: Number;
-  public publisher: string;
+  public publisher: String;
   public content: string;
   public title: string;
   public created: Date;
