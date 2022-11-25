@@ -8,11 +8,17 @@ import { DataManagerService } from './data-manager.service';
 import { Post } from './model/post.model';
 import { PostRepository } from './model/post.repository';
 import { PostsComponent } from './posts/posts.component';
+import { PostComponent } from './post/post.component';
+import { CommentComponent } from './comment/comment.component';
+import { FeedBackComponent } from './feed-back/feed-back.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    PostComponent,
+    CommentComponent,
+    FeedBackComponent
   ],
   imports: [
     BrowserModule,
