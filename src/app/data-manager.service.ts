@@ -29,17 +29,11 @@ export class DataManagerService {
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
     this.baseUrl = "https://lavender-nightshirt.cyclic.app/";
-
-    //console.log("this.baseUrl:: "+this.baseUrl);
   }
-
 
   getPosts(): Observable<Post[]> {
     let postsEx = this.http.get<Post[]>(this.baseUrl + 'post');
-    //console.log("p: "+postsEx);
-    //console.log("p: "+JSON.stringify(postsEx));
     return this.http.get<Post[]>(this.baseUrl + 'post');
-    // return this.http.get<Post[]>(this.baseUrl + 'post-list');
   }
 
   savePost(post: Post): Observable<Post>  {
@@ -50,7 +44,6 @@ export class DataManagerService {
   
 
   deletePost(id: number): Observable<any>  {
-    //console.log("data manager: "+this.baseUrl + 'post/delete/'+id);
     return this.http.delete(this.baseUrl + 'post/delete/'+id);
   }
 
