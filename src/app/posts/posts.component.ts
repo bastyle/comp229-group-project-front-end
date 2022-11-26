@@ -20,4 +20,14 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  deletePost(id: number):void{
+    //console.log("delete:"+id);
+    this.repository.deletePost(id);
+  }
+
+  click(){
+    console.log("click");
+  }
+
 }

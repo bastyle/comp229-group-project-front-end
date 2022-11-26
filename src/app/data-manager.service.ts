@@ -28,14 +28,14 @@ export class DataManagerService {
   //constructor(private http: HttpClient, private jwtService: JwtHelperService)
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-    console.log("this.baseUrl:: "+this.baseUrl);
+    //console.log("this.baseUrl:: "+this.baseUrl);
   }
 
 
   getPosts(): Observable<Post[]> {
     let postsEx = this.http.get<Post[]>(this.baseUrl + 'post');
-    console.log("p: "+postsEx);
-    console.log("p: "+JSON.stringify(postsEx));
+    //console.log("p: "+postsEx);
+    //console.log("p: "+JSON.stringify(postsEx));
     return this.http.get<Post[]>(this.baseUrl + 'post');
     // return this.http.get<Post[]>(this.baseUrl + 'post-list');
   }
@@ -43,6 +43,13 @@ export class DataManagerService {
   savePost(post: Post): Observable<Post>  {
     console.log(JSON.stringify(post));
     return this.http.post<Post>(this.baseUrl + 'post/add', post);
+  }
+
+  
+
+  deletePost(id: number): Observable<any>  {
+    //console.log("data manager: "+this.baseUrl + 'post/delete/'+id);
+    return this.http.delete(this.baseUrl + 'post/delete/'+id);
   }
 
 }

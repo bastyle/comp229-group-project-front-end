@@ -1,26 +1,35 @@
-<p>posts works!</p>
-
 <div class="container-fluid">
     <div class="row">
         <!-- Posts -->
         <div class="col-9 p-2">
-            <table border="1">
-                <tr>
-                    <td>ID</td>
-                    <td>Title</td>
-                    <td>Author</td>
-                    <td>Content</td>
-                    <td>Created</td>
-                    <td>Updated</td>
-                </tr>
-                <tr *ngFor='let post of posts' class="card m-1 p-1 bg-light">
-                    <td>{{ post._id }}</td>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.publisher }}
-                    <td>{{ post.content }}
-                    <td>{{ post.created }}
-                    <td>{{ post.updated }}
-                </tr>
+            <table class="table table-responsive table-hover table-dark table-bordered">
+                <caption>List of Posts</caption>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Content</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let post of posts' class=" p-1 bg-light">
+                        <th scope="row">{{ post._id }}</th>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.publisher }}
+                        <td>{{ post.content }}
+                        <td>{{ post.created | date: 'dd-MM-yyyy hh:mm:ss' }}
+                        <td>{{ post.updated | date: 'dd-MM-yyyy hh:mm:ss'}}
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-danger" (click)='deletePost(post._id)'>
+                                Remove
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>

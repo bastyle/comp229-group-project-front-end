@@ -12,24 +12,24 @@ export class PostRepository {
   constructor(private dataSource: DataManagerService) {
     this.dataSource.getPosts()
       .subscribe(data => {
-        console.log("sub: posts:::" + JSON.stringify(data));
+        //console.log("sub: posts:::" + JSON.stringify(data));
         this.posts = data
       });
   }
 
   loadPosts(): void {
-    console.log("repo loadPosts");
+    //console.log("repo loadPosts");
     this.loaded = true;
     this.dataSource.getPosts()
       //.subscribe(posts => this.posts = posts);
       .subscribe(posts => {
-        console.log("sub: posts.:" + JSON.stringify(posts));
+        //console.log("sub: posts.:" + JSON.stringify(posts));
         this.posts = posts
       });
   }
 
   getPosts(): Post[] {
-    console.log("repo getPosts");
+    //console.log("repo getPosts");
     /*if (!this.loaded) {
       this.loadPosts();
     }*/
@@ -38,6 +38,16 @@ export class PostRepository {
 
   savepost(post: Post): Observable<Post> {
     return this.dataSource.savePost(post);
+  }
+
+  deletePost(id: number): void {
+    //console.log("repository: "+id);
+    //return this.dataSource.deletePost(id);
+    this.dataSource.deletePost(id)
+        .subscribe(data => {
+          //console.log('Delete successful'+data);
+          this.loadPosts();
+        });
   }
 
 }
