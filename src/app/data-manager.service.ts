@@ -28,6 +28,8 @@ export class DataManagerService {
   //constructor(private http: HttpClient, private jwtService: JwtHelperService)
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = "https://lavender-nightshirt.cyclic.app/";
+
     //console.log("this.baseUrl:: "+this.baseUrl);
   }
 
