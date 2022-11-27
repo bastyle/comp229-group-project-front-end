@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostRepository } from './../model/post.repository';
 import { Router } from '@angular/router';
 import { Post } from '../model/post.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
@@ -15,6 +16,19 @@ export class PostsComponent implements OnInit {
 
   get posts(): Post[]{
     return this.repository.getPosts();
+  }
+
+  test= true;
+
+  editObj = new Post();
+
+ Submit = new Post();
+
+  onSubmit(f:NgForm) {
+    this.Submit.title= f.value.id;
+    this.Submit.publisher= f.value.title;
+    this.Submit.content= f.value.content;
+    this.repository.savepost(this.Submit);
   }
 
   ngOnInit(): void {

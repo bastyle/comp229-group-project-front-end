@@ -41,8 +41,6 @@ export class DataManagerService {
     return this.http.post<Post>(this.baseUrl + 'post/add', post);
   }
 
-  
-
   deletePost(id: number): Observable<any>  {
     return this.http.delete(this.baseUrl + 'post/delete/'+id);
   }
