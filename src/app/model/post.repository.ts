@@ -14,6 +14,11 @@ export class PostRepository {
       .subscribe(data => {
         this.posts = data
       });
+    
+    this.dataSource.refreshRequired.subscribe(res => {
+      this.loadPosts();
+      this.getPosts();
+    })
   }
 
   loadPosts(): void {

@@ -11,18 +11,22 @@ import { PostsComponent } from './posts/posts.component';
 //import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
 import { FeedBackComponent } from './feed-back/feed-back.component';
+import { PostsDetailsComponent } from './posts-details/posts-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     CommentComponent,
-    FeedBackComponent
+    FeedBackComponent,
+    PostsDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [Post, PostRepository, DataManagerService],
   bootstrap: [AppComponent]
