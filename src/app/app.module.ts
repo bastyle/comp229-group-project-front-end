@@ -13,6 +13,8 @@ import { CommentComponent } from './comment/comment.component';
 import { FeedBackComponent } from './feed-back/feed-back.component';
 import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { FormsModule } from '@angular/forms';
+import { AddComponent } from './add/add.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     PostsComponent,
     CommentComponent,
     FeedBackComponent,
-    PostsDetailsComponent
+    PostsDetailsComponent,
+    AddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
