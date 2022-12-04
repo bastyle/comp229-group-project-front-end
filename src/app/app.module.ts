@@ -15,6 +15,7 @@ import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { FormsModule } from '@angular/forms';
 import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     FeedBackComponent,
     PostsDetailsComponent,
     AddComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
