@@ -11,12 +11,14 @@ export class UserRegisterComponent implements OnInit {
   
   constructor() { }
 
-  registeredUser: User;
+  registeredUser = new User();
 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm){
+    console.log("submit...");
+    
     // this.registeredUser.username = form.value.username;
     // this.registeredUser.password = form.value.password;
     // this.registeredUser.email = form.value.email;

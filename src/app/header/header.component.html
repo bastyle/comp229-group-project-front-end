@@ -26,26 +26,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <!--<a class="nav-link active" aria-current="page" href="#">Posts</a>-->
                             <a [routerLink]="['/posts']">Posts</a>
                         </li>
-                       <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                        <span>&nbsp;&nbsp;</span>
+                        <li class="nav-item">
+                            <a [routerLink]="['/register_user']">Register</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Menu
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Posts</a></li>
-                                <li><a class="dropdown-item" href="#">Category</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Help</a></li>
-                            </ul>
-                        </li>-->
                         <span>&nbsp;&nbsp;</span>
                         <span *ngIf="!loginStatus">
                             <li><a [routerLink]="['/login']">Login</a></li>
@@ -56,30 +42,10 @@
                             </li>
                         </span>
                     </ul>
-
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
-                  
-                  <li class="nav-item">
-                    <!--<a class="nav-link" href="#">Login</a>-->
+                <li class="nav-item">
                     <a [routerLink]="['/login']">Login</a>
-                  </li> <li class="nav-item">
-                    <!--<a class="nav-link" href="#">Login</a>-->
-                    <a [routerLink]="['/register_user']">Register</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                  </li>
-                
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            
+            </div>
         </nav>
     </header>
     <div class="bg-image card shadow-1-strong"
