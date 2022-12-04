@@ -7,4 +7,6 @@ export class User {
     public fullName: String;
     public created: Date;
     public updated: Date;
+
+    constructor(){}
 }

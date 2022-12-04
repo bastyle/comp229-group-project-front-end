@@ -17,10 +17,12 @@ export class UserRegisterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    this.registeredUser.username = form.value.username;
-    this.registeredUser.password = form.value.password;
-    this.registeredUser.email = form.value.email;
-    this.registeredUser.fullName = form.value.fullName;
+    // this.registeredUser.username = form.value.username;
+    // this.registeredUser.password = form.value.password;
+    // this.registeredUser.email = form.value.email;
+    // this.registeredUser.fullName = form.value.fullName;
+
+    console.log(this.registeredUser.username);
   }
 
 }
