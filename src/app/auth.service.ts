@@ -24,6 +24,7 @@ export class AuthService {
   }
 
   logout() {
+    console.log("logout: AuthService");
     localStorage.removeItem("access_token");
   }
 
