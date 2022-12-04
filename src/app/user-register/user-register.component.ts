@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { DataManagerService } from '../data-manager.service';
 import { User } from '../model/user';
 
 @Component({
@@ -9,7 +11,7 @@ import { User } from '../model/user';
 })
 export class UserRegisterComponent implements OnInit {
   
-  constructor() { }
+  constructor(private route: ActivatedRoute, private dataManager: DataManagerService) { }
 
   registeredUser = new User();
 
@@ -17,14 +19,11 @@ export class UserRegisterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log("submit...");
-    
-    // this.registeredUser.username = form.value.username;
-    // this.registeredUser.password = form.value.password;
-    // this.registeredUser.email = form.value.email;
-    // this.registeredUser.fullName = form.value.fullName;
-
+    console.log("submit...");    
     console.log(this.registeredUser.username);
+    this.dataManager.addUser(this.registeredUser).subscribe((userDetail)=>{
+      console.log("userDetail: "+userDetail);       
+    });
   }
 
 }

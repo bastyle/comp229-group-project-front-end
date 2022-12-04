@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, tap } from 'rxjs';
 import { Post } from './model/post.model';
+import { User } from './model/user';
 //import { JwtHelperService } from '@auth0/angular-jwt';
 
 const PROTOCOL = 'http';
@@ -29,7 +30,8 @@ export class DataManagerService {
   
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-    this.baseUrl = "https://comfortable-boa-pea-coat.cyclic.app/";
+//    this.baseUrl = "https://comfortable-boa-pea-coat.cyclic.app/";
+this.baseUrl = "http://localhost:3000/";
   }
 
   private refreshRequest = new Subject<void>();
@@ -65,6 +67,11 @@ export class DataManagerService {
     );
   }
 
-  
+  addUser(user: User): Observable<any>  {
+    console.log(JSON.stringify(user));
+    console.log(this.baseUrl + 'user/add');
+    
+    return this.http.post<any>(this.baseUrl + 'user/add', user);
+  }
 
 }
