@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataManagerService } from '../data-manager.service';
 import { Post } from '../model/post.model';
 import { PostRepository } from '../model/post.repository';
@@ -12,7 +12,7 @@ import { PostRepository } from '../model/post.repository';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private repository: PostRepository, private route: ActivatedRoute, private dataManager: DataManagerService) { }
+  constructor(private repository: PostRepository, private route: ActivatedRoute, private dataManager: DataManagerService,private router: Router) { }
 
   id: Number;
   addPost = new Post();
@@ -26,6 +26,7 @@ export class AddComponent implements OnInit {
     this.addPost.content = form.value.content;
     console.log(this.addPost._id);
     this.createPost(this.addPost);
+    this.router.navigate(["/posts"]);
   }
   
 
