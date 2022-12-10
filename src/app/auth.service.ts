@@ -9,14 +9,22 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  setToken(token: any) {
+  setToken(token: any, logedUser: any) {
+    console.log("logedUser: "+logedUser[0]);
+    console.log("logedUser: "+JSON.stringify(logedUser[0]));
+    
     localStorage.setItem("access_token", token);
-
+    localStorage.setItem("username", logedUser[0].username);
+    localStorage.setItem("userId", logedUser[0]._id);
   }
 
   login(user: any): Observable<any> {
-    // http://localhost:8080/api/login
-    return this.http.post<any>("https://comfortable-boa-pea-coat.cyclic.app/api/login", user);
+    return this.http.post<any>("http://localhost:3000/api/login", user);
+    //return this.http.post<any>("https://comfortable-boa-pea-coat.cyclic.app/api/login", user);
+  }
+
+  getUser():any{
+    return {"username":localStorage.getItem("username"),"id":localStorage.getItem("userId")};
   }
 
   getToken() {
