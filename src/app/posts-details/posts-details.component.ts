@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataManagerService } from '../data-manager.service';
 import { Post } from '../model/post.model';
 import { PostRepository } from '../model/post.repository';
@@ -12,7 +12,7 @@ import { PostRepository } from '../model/post.repository';
 })
 export class PostsDetailsComponent implements OnInit {
 
-  constructor(private repository: PostRepository, private route: ActivatedRoute, private dataManager: DataManagerService) { }
+  constructor(private repository: PostRepository, private route: ActivatedRoute, private dataManager: DataManagerService,private router:Router) { }
   
   id: Number;
   editPost = new Post();
@@ -39,10 +39,8 @@ export class PostsDetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       if(params['postId']){
         this.dataManager.getPost(params['postId']).subscribe((post) => {
-          //console.log(post._id);
           this.editPost._id = post._id;
           this.id = post._id;
-          //console.log(this.id);
           this.editPost.title = post.title;
           this.editPost.publisher = post.publisher;
           this.editPost.content = post.content;
@@ -54,6 +52,8 @@ export class PostsDetailsComponent implements OnInit {
   updateEditedPost(editedPost: Post){
     this.dataManager.editPost(editedPost).subscribe((editedPost) => {
       console.log("Updated Successfully!");
+      //TODO add modal message
+      this.router.navigate(["/posts"]);
     })
   }
 }

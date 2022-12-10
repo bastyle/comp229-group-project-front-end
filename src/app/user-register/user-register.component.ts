@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataManagerService } from '../data-manager.service';
 import { User } from '../model/user';
 
+
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',

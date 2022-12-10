@@ -44,7 +44,7 @@
       <div class="form-group">
         <label for="sername">Username: </label>
         <input [(ngModel)]="registeredUser.username" name="username" type="text" class="form-control" id="username"
-          placeholder="username" minlength="2" maxlength="10" pattern="[a-zA-Z ]*" #username="ngModel" required
+          placeholder="username" minlength="2" maxlength="10" pattern="[a-zA-Z0-9]*" #username="ngModel" required
           [class.text-alert]="!username.valid"/>
       </div>
 
@@ -94,3 +94,4 @@
     </div>
   </div>
 </div>
+
