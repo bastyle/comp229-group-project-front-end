@@ -22,64 +22,75 @@
     </form>
 </div>  -->
 
+
+
 <div class="form-group container appContainer">
+  
+  <div *ngIf="postForm.touched && username.touched && username.invalid" class="alert alert-danger">
+    Error: User Name invalid.
+  </div>
+  <div *ngIf="postForm.touched && password.touched && password.invalid" class="alert alert-danger">
+    Error: Password invalid.
+  </div>
+  <div *ngIf="postForm.touched && email.touched && email.invalid" class="alert alert-danger">
+    Error: Email invalid.
+  </div>
+  <div *ngIf="postForm.touched && fullName.touched && fullName.invalid" class="alert alert-danger">
+    Error: Full Name invalid.
+  </div>
+
   <div class="appCard mt-3">
-    <form
-      #postForm="ngForm"
-      class="p-3 d-flex flex-column gap-3"
-      method="POST"
-      (ngSubmit)="onSubmit(postForm)"
-    >
-      <!--<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)"></form>-->
+    <form #postForm="ngForm" class="p-3 d-flex flex-column gap-3" method="POST" (ngSubmit)="onSubmit(postForm)">
       <div class="form-group">
         <label for="sername">Username: </label>
-        <input
-          [(ngModel)]="registeredUser.username"
-          name="username"
-          type="text"
-          class="form-control"
-          id="username"
-          placeholder="username of Post"
-        />
+        <input [(ngModel)]="registeredUser.username" name="username" type="text" class="form-control" id="username"
+          placeholder="username" minlength="2" maxlength="10" pattern="[a-zA-Z ]*" #username="ngModel" required
+          [class.text-alert]="!username.valid"/>
       </div>
 
       <div class="form-group">
         <label for="author">Password: </label>
-        <input
-          [(ngModel)]="registeredUser.password"
-          name="password"
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="*secret credentials*"
-        />
+        <input [(ngModel)]="registeredUser.password" name="password" type="password" class="form-control" id="password"
+          placeholder="*secret credentials*" #password="ngModel" required
+          [class.text-alert]="!password.valid"/>
       </div>
       <div class="form-group">
         <label for="author">Email: </label>
-        <input
-          [(ngModel)]="registeredUser.email"
-          name="email"
-          type="text"
-          class="form-control"
-          id="email"
-          placeholder="email@domain.com"
-        />
+        <input [(ngModel)]="registeredUser.email" name="email" type="text" class="form-control" id="email"
+          placeholder="email@domain.com" #email="ngModel" required
+          [class.text-alert]="!email.valid"/>
       </div>
       <div class="form-group">
         <label for="author">Full Name: </label>
-        <input
-          [(ngModel)]="registeredUser.fullName"
-          name="fullName"
-          type="text"
-          class="form-control"
-          id="fullName"
-          placeholder="John Smith"
-        />
+        <input [(ngModel)]="registeredUser.fullName" name="fullName" type="text" class="form-control" id="fullName"
+          placeholder="John Smith" #fullName="ngModel" required minlength="2" maxlength="10" pattern="[a-zA-Z ]*"
+          [class.text-alert]="!fullName.valid"/>
       </div>
 
       <div class="pt-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!postForm.form.valid">Submit</button>
       </div>
     </form>
+    <!--<button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup('')">Show Data
+    </button>-->
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Register</h4>
+      </div>
+      <div class="modal-body">
+        <!--<p>User account Successfully created.</p>-->
+        <p>{{popUpMessage}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
   </div>
 </div>

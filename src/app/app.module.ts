@@ -17,6 +17,7 @@ import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { HeaderComponent } from './header/header.component';
+import { ModalMessageComponent } from './modal-message/modal-message.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeaderComponent } from './header/header.component';
     AddComponent,
     LoginComponent,
     UserRegisterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModalMessageComponent
   ],
   imports: [
     BrowserModule,

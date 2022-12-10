@@ -1,38 +1,23 @@
 <br /><br /><br /><br /><br />
 <div class="login-container container appContainer">
   <div class="row appCard p-3">
+    <h1>Login</h1>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="d-flex gap-3 flex-column">
       <div class="col-md-12">
         <div class="form-group">
           <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            value=""
-            [(ngModel)]="user.userName"
-            class="form-control"
-          />
+          <input type="text" name="username" value="" [(ngModel)]="user.userName" class="form-control" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
           <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value=""
-            [(ngModel)]="user.password"
-            class="form-control"
-          />
+          <input type="password" name="password" value="" [(ngModel)]="user.password" class="form-control" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <button
-            type="submit"
-            value="submit"
-            class="btn btn-success pull-right"
-          >
+          <button type="submit" value="submit" class="btn btn-success pull-right">
             Login
           </button>
         </div>
