@@ -12,43 +12,55 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img src="../assets/teamlogo.png" alt="Bootstrap" width="300" height="70">
-                    </a>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a [routerLink]="['/posts']">Posts</a>
-                        </li>                                               
-                        <span>&nbsp;&nbsp;</span>
-                        <span *ngIf="!loginStatus">
-                            <li class="nav-item">
-                                <a [routerLink]="['/login']">Login</a>
-                            </li>
-                            <span>&nbsp;&nbsp;</span>
-                            <li class="nav-item">
-                                <a [routerLink]="['/register_user']">Register</a>
-                            </li>
-                        </span>
-                        <span *ngIf="loginStatus">
-                            <li class="nav-item">
-                                <a class="link" [routerLink]="['']" (click)="logout()">Logout</a>
-                            </li>
-                        </span>
-                    </ul>
-                </div>
-                
+          <div class="container-fluid">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img
+                  src="../assets/teamlogo.png"
+                  alt="Bootstrap"
+                  width="300"
+                  height="70"
+                />
+              </a>
             </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+                <li class="nav-item">
+                  <a class="btn" [routerLink]="['/posts']">Posts</a>
+                </li>
+                <span>&nbsp;&nbsp;</span>
+                <span *ngIf="!loginStatus" class="d-flex">
+                  <li class="nav-item">
+                    <a class="btn" [routerLink]="['/login']">Login</a>
+                  </li>
+                  <span>&nbsp;&nbsp;</span>
+                  <li class="nav-item">
+                    <a class="btn" [routerLink]="['/register_user']">Register</a>
+                  </li>
+                </span>
+                <span *ngIf="loginStatus">
+                  <li class="nav-item">
+                    <a class="link" [routerLink]="['']" (click)="logout()"
+                      >Logout</a
+                    >
+                  </li>
+                </span>
+              </ul>
+            </div>
+          </div>
         </nav>
-    </header>
+      </header>
     <div class="bg-image card shadow-1-strong"
         style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');">
         <div class="card-body text-white text-center">
