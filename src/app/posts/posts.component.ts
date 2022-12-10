@@ -48,4 +48,6 @@ export class PostsComponent implements OnInit {
     console.log("click");
   }
 
+  
+
 }

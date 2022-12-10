@@ -12,8 +12,8 @@ import { PostRepository } from '../model/post.repository';
 })
 export class PostsDetailsComponent implements OnInit {
 
-  constructor(private repository: PostRepository, private route: ActivatedRoute, private dataManager: DataManagerService,private router:Router) { }
-  
+  constructor(private repository: PostRepository, private route: ActivatedRoute, private dataManager: DataManagerService, private router: Router) { }
+
   id: Number;
   editPost = new Post();
 
@@ -23,7 +23,7 @@ export class PostsDetailsComponent implements OnInit {
     this.getEditPost();
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     this.editPost.title = form.value.title;
     this.editPost.publisher = form.value.publisher;
     this.editPost.content = form.value.content;
@@ -35,9 +35,9 @@ export class PostsDetailsComponent implements OnInit {
     // console.log(this.editPost.content);
   }
 
-  getEditPost(){
+  getEditPost() {
     this.route.params.subscribe((params) => {
-      if(params['postId']){
+      if (params['postId']) {
         this.dataManager.getPost(params['postId']).subscribe((post) => {
           this.editPost._id = post._id;
           this.id = post._id;
@@ -49,11 +49,26 @@ export class PostsDetailsComponent implements OnInit {
     })
   }
 
-  updateEditedPost(editedPost: Post){
+  updateEditedPost(editedPost: Post) {
     this.dataManager.editPost(editedPost).subscribe((editedPost) => {
-      console.log("Updated Successfully!");
+      //console.log("Updated Successfully!");
       //TODO add modal message
-      this.router.navigate(["/posts"]);
+      this.openPopup("Post edited successfully!");
+      //this.router.navigate(["/posts"]);
     })
+  }
+
+  displayStyle = "none";
+  popUpMessage = "";
+  
+
+  openPopup(message) {
+    this.displayStyle = "block";
+    this.popUpMessage = message;
+
+  }
+  closePopup() {
+    this.displayStyle = "none";
+    this.router.navigate(["/posts"]);
   }
 }

@@ -37,7 +37,7 @@ export class AddComponent implements OnInit {
 
   createPost(addedPost: Post) {
     this.dataManager.savePost(addedPost).subscribe((addedPost) => {
-      console.log("Created Successfully!");
+      //console.log("Created Successfully!");
       this.openPopup("Post created successfully!");
     })
   }
