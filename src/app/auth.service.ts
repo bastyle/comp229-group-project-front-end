@@ -19,8 +19,8 @@ export class AuthService {
   }
 
   login(user: any): Observable<any> {
-    return this.http.post<any>("http://localhost:3000/api/login", user);
-    //return this.http.post<any>("https://comfortable-boa-pea-coat.cyclic.app/api/login", user);
+    //return this.http.post<any>("http://localhost:3000/api/login", user);
+    return this.http.post<any>("https://comfortable-boa-pea-coat.cyclic.app/api/login", user);
   }
 
   getUser():any{
