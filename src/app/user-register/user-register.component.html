@@ -22,31 +22,64 @@
     </form>
 </div>  -->
 
-<div class="form-group">
-  <form #postForm="ngForm" class="w-75 p-3" method="POST" (ngSubmit)="onSubmit(postForm)">
-    <!--<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)"></form>-->
-    <div class="form-group">
-      <label for="username">username: </label>
-      <input [(ngModel)]="registeredUser.username" name="username" type="text" class="form-control" id="username"
-        placeholder="username of Post">
-    </div>
+<div class="form-group container appContainer">
+  <div class="appCard mt-3">
+    <form
+      #postForm="ngForm"
+      class="p-3 d-flex flex-column gap-3"
+      method="POST"
+      (ngSubmit)="onSubmit(postForm)"
+    >
+      <!--<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)"></form>-->
+      <div class="form-group">
+        <label for="sername">Username: </label>
+        <input
+          [(ngModel)]="registeredUser.username"
+          name="username"
+          type="text"
+          class="form-control"
+          id="username"
+          placeholder="username of Post"
+        />
+      </div>
 
-    <div class="form-group">
-      <label for="author">Password: </label>
-      <input [(ngModel)]="registeredUser.password" name="password" type="text" class="form-control" id="password" placeholder="*secret credentials*">
-    </div>
-    <div class="form-group">
-      <label for="author">Email: </label>
-      <input [(ngModel)]="registeredUser.email" name="email" type="text" class="form-control" id="email" placeholder="email@domain.com">
-    </div>
-    <div class="form-group">
-      <label for="author">Full Name: </label>
-      <input [(ngModel)]="registeredUser.fullName" name="fullName" type="text" class="form-control" id="fullName" placeholder="John Smith">
-    </div>
-    
-    <div class="pt-3">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>   
+      <div class="form-group">
+        <label for="author">Password: </label>
+        <input
+          [(ngModel)]="registeredUser.password"
+          name="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="*secret credentials*"
+        />
+      </div>
+      <div class="form-group">
+        <label for="author">Email: </label>
+        <input
+          [(ngModel)]="registeredUser.email"
+          name="email"
+          type="text"
+          class="form-control"
+          id="email"
+          placeholder="email@domain.com"
+        />
+      </div>
+      <div class="form-group">
+        <label for="author">Full Name: </label>
+        <input
+          [(ngModel)]="registeredUser.fullName"
+          name="fullName"
+          type="text"
+          class="form-control"
+          id="fullName"
+          placeholder="John Smith"
+        />
+      </div>
 
-  </form>
+      <div class="pt-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>

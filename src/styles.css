@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.appCard {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 420px;
+}
+
+@media (max-width: 489px) {
+  .appCard {
+    width: 100%;
+  }
+}
