@@ -25,13 +25,14 @@
             <td>{{ post.content }}</td>
             <td>{{ post.created | date : "dd-MM-yyyy hh:mm:ss" }}</td>
             <td>{{ post.updated | date : "dd-MM-yyyy hh:mm:ss" }}</td>
-            <td class="text-center">
-              <!--<a class="btn btn-sm btn-info" [routerLink]="['/edit-post', user.id]">Edit</a>-->
+            <!--<td class="text-center">-->
+            <td *ngIf="currentUser==post.publisher" class="text-center">
+              
               <a class="btn btn-sm btn-info" [routerLink]="['/post/', post._id]"
                 >Edit</a
               >
             </td>
-            <td class="text-center">
+            <td *ngIf="currentUser==post.publisher" class="text-center">
               <a class="btn btn-sm btn-danger" (click)="deletePost(post._id)">
                 Remove
               </a>

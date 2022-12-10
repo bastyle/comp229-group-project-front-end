@@ -30,14 +30,33 @@ export class AddComponent implements OnInit {
     console.log(this.addPost._id);
     this.createPost(this.addPost);
 
-    this.router.navigate(["/posts"]);
+    //this.router.navigate(["/posts"]);
+
   }
 
 
   createPost(addedPost: Post) {
     this.dataManager.savePost(addedPost).subscribe((addedPost) => {
       console.log("Created Successfully!");
+      this.openPopup("Post created successfully!");
     })
+  }
+
+
+  displayStyle = "none";
+  popUpMessage = "";
+  validForm = false;
+
+  openPopup(message) {
+    console.log("open....");
+    this.displayStyle = "block";
+    this.popUpMessage = message;
+
+  }
+  closePopup() {
+    console.log("close");
+    this.displayStyle = "none";    
+    this.router.navigate(["/posts"]);
   }
 
 }
