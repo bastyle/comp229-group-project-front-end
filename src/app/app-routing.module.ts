@@ -6,6 +6,7 @@ import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { PostsComponent } from './posts/posts.component';
 import { GuardAuthServiceService } from './guard-auth-service.service';
+import { ShowPostComponent } from './show-post/show-post.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'post', component:AddComponent, canActivate: [GuardAuthServiceService]},
   { path: 'register_user', component: UserRegisterComponent},
   { path: 'posts', component:PostsComponent, canActivate: [GuardAuthServiceService]},
+  { path: 'show_post/:postId', component:ShowPostComponent, canActivate: [GuardAuthServiceService]},
   //{ path: 'post/form', component: PostsDetailsComponent}
   { path: "login", component: LoginComponent }
 ];

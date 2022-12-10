@@ -1,0 +1,30 @@
+<div class="appContainer">
+    <div class="card text-align col-sm-12 shadow mb-3 mt-8" style="max-width: 80rem; margin:10px">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ editPost.title}} </h5>
+            <p class="card-text">{{ editPost.content }}</p>
+        </div>
+        <div class="card-footer text-muted">
+            by {{editPost.publisher}} on {{editPost.created | date : "dd-MM-yyyy hh:mm:ss"}}
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Post</h4>
+            </div>
+            <div class="modal-body">
+                <!--<p>User account Successfully created.</p>-->
+                <p>{{popUpMessage}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

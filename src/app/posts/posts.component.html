@@ -8,13 +8,15 @@
         <div class="card-body">
           <h5 class="card-title">{{ post.title | slice:0:10 }} ...</h5>
           <p class="card-text">{{ post.content | slice:0:100 }} ...</p>
-          <div *ngIf="currentUser==post.publisher" class="text-center">
-            <a class="btn btn-sm btn-info" [routerLink]="['/post/', post._id]">Edit</a>
-            &nbsp;
-            <a class="btn btn-sm btn-danger" (click)="deletePost(post._id)">Remove</a>
-          </div>
         </div>
         <div class="card-footer text-muted">
+          <div class="text-center">
+            <a class="btn btn-sm btn-primary" [routerLink]="['/show_post/', post._id]">Read</a>
+            &nbsp;
+            <a *ngIf="currentUser==post.publisher" class="btn btn-sm btn-info" [routerLink]="['/post/', post._id]">Edit</a>
+            &nbsp;
+            <a *ngIf="currentUser==post.publisher" class="btn btn-sm btn-danger" (click)="deletePost(post._id)">Remove</a>
+          </div>
           <p>by {{post.publisher}}</p>
           {{post.created | date : "dd-MM-yyyy hh:mm:ss" }}
         </div>
