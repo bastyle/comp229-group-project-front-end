@@ -39,7 +39,7 @@
             </span>
             <span *ngIf="loginStatus">
               <li class="nav-item">
-                <a class="btn" [routerLink]="['']" (click)="logout()">Logout</a>
+                <a class="btn text-danger" [routerLink]="['']" (click)="logout()">Logout</a>
               </li>
             </span>
           </ul>
@@ -52,8 +52,8 @@
       ">
     <div class="card-body text-white text-center">
       <h5 class="card-title">Welcome to Chingu Labs</h5>
-      <p class="card-text">Create your post and connect with Friends!</p>
-      <a class="btn btn-outline-light" [routerLink]="['/post']">Create your post</a>
+      <p class="card-text">Create Your Post and Connect with Friends!</p>
+      <a class="btn btn-outline-light" [routerLink]="['/post']">Create Your Post</a>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
